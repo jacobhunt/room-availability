@@ -17,4 +17,10 @@ UPRC Hackathon Project 2019
 
 <h1 id="mainHeaderText">UPRC Study Room Availability</h1>
 
+<ul id="roomList">
+{% for room in rooms %}
+<li>{{ room.name }} occupied status is {{ room.isOccupied }}</li>
+{% endfor %}
+</ul>
+
 {% endblock %}

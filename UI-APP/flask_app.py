@@ -25,7 +25,10 @@ app.secret_key = "8975917845yhiWUEFHYDFU*(#@!$73RYUIAWGDF"
 # root page
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        rooms = [room.serialize() for room in rooms]
+    )
 
 # http route for setting status of a room (i.e. whether or not it is occupied) 
 @app.route("/setRoomStatus")
