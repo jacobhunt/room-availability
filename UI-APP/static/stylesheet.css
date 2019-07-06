@@ -1,15 +1,19 @@
 body {
-    background-color: #000000;
+    background-color: #ddddff;
 }
 
 p {
-    color: #FFFFFF;
+    color: #000000;
 }
 
 a {
-    color: #7777FF;
+    color: #000000;
 }
 
 form {
-    color: #FFFFFF;
+    color: #000000;
+}
+
+#mainHeaderText {
+    text-align: center;
 }
