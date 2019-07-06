@@ -19,7 +19,7 @@ UPRC Hackathon Project 2019
 
 <ul id="roomList">
 {% for room in rooms %}
-<li>{{ room.name }} occupied status is {{ room.isOccupied }}</li>
+<li>{{ room.name }} is {% if room.isOccupied %}occupied {% else %}vacant{% endif %}</li>
 {% endfor %}
 </ul>
 
