@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 # class to represent rooms
 class Room:
@@ -49,7 +49,26 @@ def setRoomStatus():
     if not isRoomAlreadyInArray:
         rooms.append(Room(req_name, req_isOccupied))
 
+    # construct mesasge to be returned in JSON package
+    returnMessage = "Room " + req_name + " is now listed as "
+    if req_isOccupied == True:
+        returnMessage += "occupied"
+    elif req_isOccupied == False:
+        returnMessage += "not occupied"
+    else:
+        # req_isOccupied should be either True of False; if not, 
+        # something went wrong, so notify machine making HTTP request
+        returnMessage = "Oh no! Something went wrong! Bad input?"
+        return jsonify(success = False, returnMessage = returnMessage)
+    
 
+    # send back a JSON object
+    return(
+        jsonify(
+            success = True,
+            returnMessage = returnMessage
+        )
+    )
 
 
 # configure server
