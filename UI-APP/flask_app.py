@@ -7,6 +7,12 @@ class Room:
         self.name = str(name)
         self.isOccupied = bool(isOccupied)
 
+    def serialize(self):
+        return {
+            'name': self.name,
+            'isOccupied': self.isOccupied
+        }
+
 # array to contain room instances
 rooms = []
 
@@ -28,12 +34,31 @@ def setRoomStatus():
     # get remote input from an HTTP "post" request
     if request.method == "POST":
         req_name = str(request.form.get("name"))
-        req_isOccupied = bool(request.form.get("isOccupied"))
+        req_isOccupied = request.form.get("isOccupied")
     
     # get remote input from an HTTP "get" request
     if request.method == "GET":
         req_name = str(request.args.get("name"))
-        req_isOccupied = bool(request.args.get("isOccupied"))
+        req_isOccupied = request.args.get("isOccupied")
+    
+    # parse the "isOccupied" portion of HTTP request
+    try:
+        if int(req_isOccupied) == 0:
+            req_isOccupied = False
+        elif int(req_isOccupied) == 1:
+            req_isOccupied = True
+        else:
+            return(jsonify(
+                success = False,
+                returnMessage = "Invalid input in HTTP request: " + 
+                                " isOccupied must be either '0' or '1'",
+            ))
+    except:
+            return(jsonify(
+                success = False,
+                returnMessage = "Invalid input in HTTP request: " + 
+                                " isOccupied must be either '0' or '1'",
+            ))
 
     # variable to indicate whether or not room already exists in "rooms" array
     isRoomAlreadyInArray = False
@@ -51,22 +76,31 @@ def setRoomStatus():
 
     # construct mesasge to be returned in JSON package
     returnMessage = "Room " + req_name + " is now listed as "
-    if req_isOccupied == True:
+    if req_isOccupied:
         returnMessage += "occupied"
-    elif req_isOccupied == False:
+    elif not req_isOccupied:
         returnMessage += "not occupied"
     else:
         # req_isOccupied should be either True of False; if not, 
         # something went wrong, so notify machine making HTTP request
         returnMessage = "Oh no! Something went wrong! Bad input?"
-        return jsonify(success = False, returnMessage = returnMessage)
+        return jsonify(
+            success = False,
+            returnMessage = returnMessage,
+        )
     
 
     # send back a JSON object
     return(
         jsonify(
+            # HTTP request was successful
             success = True,
-            returnMessage = returnMessage
+            
+            # message for the machine which made HTTP request
+            returnMessage = returnMessage,
+
+            # array of room data in memory
+            roomsArray = [room.serialize() for room in rooms]
         )
     )
 
