@@ -1,4 +1,9 @@
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     background-color: #ffffff;
     text-align: center;
 }
@@ -21,4 +26,23 @@ form {
 
 .redText {
     color: #FF0000;
+}
+
+#mainBootstrapRow {
+    height: 100%;
+}
+
+#leftColumn {
+    padding-top: 25px;
+    background-color: darkblue;
+}
+
+#middleColumn {
+    padding-top: 25px;
+    background-color: white;
+}
+
+#rightColumn {
+    padding-top: 25px;
+    background-color: gold;
 }

@@ -15,12 +15,22 @@ UPRC Hackathon Project 2019
 
 {% block body %}
 
-<h1 id="mainHeaderText">UPRC Study Room Availability</h1>
+<div id="mainBootstrapRow" class="row">
+  <div id="leftColumn" class="col-md-3">
+    <img src="{{ url_for('static', filename='images/ut-logo.png') }}" alt="University of Toledo Logo" />
+  </div><!-- end of div "leftColumn" -->
+  <div id="middleColumn" class="col-md-6">
+    <h1 id="mainHeaderText">UPRC Study Room Availability</h1>
 
-<div id="roomList">
-{% for room in rooms %}
-{{ room.name }} is {% if room.isOccupied %}<span class="redText">OCCUPIED</span> {% else %}<span class="greenText">VACANT</span>{% endif %}<br />
-{% endfor %}
-</div>
+    <div id="roomList">
+    {% for room in rooms %}
+    {{ room.name }} is {% if room.isOccupied %}<span class="redText">OCCUPIED</span> {% else %}<span class="greenText">VACANT</span>{% endif %}<br />
+    {% endfor %}
+    </div>
+  </div><!-- end of div "middleColumn"-->
+  <div id="rightColumn" class="col-md-3">
+    <img src="{{ url_for('static', filename='images/lccc-logo.jpg') }}" alt="Lorain County Community College Logo" />
+  </div><!-- end of div 'rightColumn' -->
+</div><!-- end of class "row" -->
 
 {% endblock %}
