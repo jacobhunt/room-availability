@@ -11,7 +11,9 @@ try:
         if GPIO.input(23):
             print("Beep Boop")
             time.sleep(5)
-        time.sleep(0.1) #loop delay, should be less than detection delay
+        else:
+            print("oof")
+        time.sleep(5) #loop delay, should be less than detection delay
     
 except:
     GPIO.cleanup()
