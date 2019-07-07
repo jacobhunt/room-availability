@@ -20,6 +20,10 @@ form {
     color: #000000;
 }
 
+th {
+  text-align: center;
+}
+
 .greenText {
     color: #00CC00;
 }
@@ -45,4 +49,12 @@ form {
 #rightColumn {
     padding-top: 25px;
     background-color: gold;
+}
+
+#roomList {
+    width: 100%;
+}
+
+#uprcImageOutside {
+    padding-top: 25px;
 }

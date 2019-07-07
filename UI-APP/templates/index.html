@@ -22,14 +22,22 @@ UPRC Hackathon Project 2019
   <div id="middleColumn" class="col-md-6">
     <h1 id="mainHeaderText">UPRC Study Room Availability</h1>
 
-    <div id="roomList">
-    {% for room in rooms %}
-    {{ room.name }} is {% if room.isOccupied %}<span class="redText">OCCUPIED</span> {% else %}<span class="greenText">VACANT</span>{% endif %}<br />
-    {% endfor %}
-    </div>
+    <table id="roomList" class="table-striped">
+      <tr>
+        <th>ROOM</th>
+        <th>AVAILABILITY</th>
+      </tr>
+      {% for room in rooms %}
+      <tr>
+        <td>{{ room.name }}</td>
+        <td>{% if room.isOccupied %}<span class="redText">OCCUPIED</span>{% else %}<span class="greenText">VACANT</span>{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <img id="uprcImageOutside" src="{{ url_for('static', filename='images/uprc-outside.jpg') }}" alt="UPRC Ridge Campus Outside" />
   </div><!-- end of div "middleColumn"-->
   <div id="rightColumn" class="col-md-3">
-    <img src="{{ url_for('static', filename='images/lccc-logo.jpg') }}" alt="Lorain County Community College Logo" />
+    <img id="uprcOutsideImage" src="{{ url_for('static', filename='images/lccc-logo.jpg') }}" alt="Lorain County Community College Logo" />
   </div><!-- end of div 'rightColumn' -->
 </div><!-- end of class "row" -->
 
