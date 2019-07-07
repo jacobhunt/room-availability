@@ -17,10 +17,10 @@ UPRC Hackathon Project 2019
 
 <h1 id="mainHeaderText">UPRC Study Room Availability</h1>
 
-<ul id="roomList">
+<div id="roomList">
 {% for room in rooms %}
-<li>{{ room.name }} is {% if room.isOccupied %}<span class="redText">OCCUPIED</span> {% else %}<span class="greenText">VACANT</span>{% endif %}</li>
+{{ room.name }} is {% if room.isOccupied %}<span class="redText">OCCUPIED</span> {% else %}<span class="greenText">VACANT</span>{% endif %}<br />
 {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
