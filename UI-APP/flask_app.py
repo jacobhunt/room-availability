@@ -36,11 +36,13 @@ def setRoomStatus():
 
     # get remote input from an HTTP "post" request
     if request.method == "POST":
+        requestData = request.form
         req_name = str(request.form.get("name"))
         req_isOccupied = request.form.get("isOccupied")
     
     # get remote input from an HTTP "get" request
     if request.method == "GET":
+        requestData = request.args
         req_name = str(request.args.get("name"))
         req_isOccupied = request.args.get("isOccupied")
     
@@ -54,13 +56,15 @@ def setRoomStatus():
             return(jsonify(
                 success = False,
                 returnMessage = "Invalid input in HTTP request: " + 
-                                " isOccupied must be either '0' or '1'",
+                                " isOccupied must be either '0' or '1' (no serverside exception)",
+                HTTPRequestData = requestData
             ))
     except:
             return(jsonify(
                 success = False,
                 returnMessage = "Invalid input in HTTP request: " + 
-                                " isOccupied must be either '0' or '1'",
+                                " isOccupied must be either '0' or '1' (serverside exception)",
+                HTTPRequestData = requestData
             ))
 
     # variable to indicate whether or not room already exists in "rooms" array

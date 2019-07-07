@@ -1,5 +1,5 @@
 body {
-    background-color: #ddddff;
+    background-color: #ffffff;
 }
 
 p {
@@ -16,4 +16,12 @@ form {
 
 #mainHeaderText {
     text-align: center;
+}
+
+.greenText {
+    color: #00CC00;
+}
+
+.redText {
+    color: #FF0000;
 }
