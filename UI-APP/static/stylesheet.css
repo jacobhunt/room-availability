@@ -1,15 +1,27 @@
 body {
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 p {
-    color: #FFFFFF;
+    color: #000000;
 }
 
 a {
-    color: #7777FF;
+    color: #000000;
 }
 
 form {
-    color: #FFFFFF;
+    color: #000000;
+}
+
+#mainHeaderText {
+    text-align: center;
+}
+
+.greenText {
+    color: #00CC00;
+}
+
+.redText {
+    color: #FF0000;
 }

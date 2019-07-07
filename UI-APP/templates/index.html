@@ -1,11 +1,11 @@
 {% extends "template.html" %}
 
 {% block title %}
-Index
+UPRC Study Room Availability
 {% endblock %}
 
 {% block description %}
-A bare-bones flask implementation.
+UPRC Hackathon Project 2019
 {% endblock %}
 
 {% block header_script %}
@@ -14,9 +14,13 @@ A bare-bones flask implementation.
 {% endblock %}
 
 {% block body %}
-<p>Hello World!  I am a bare-bones implementation of a flask-based Python 
-server.  I'm not much to look at right now, but I could grow into so much 
-more!</p>
-<p><a href="{{ url_for('form') }}">Click this link to use an html form.</a></p>
-<p><a onclick="popup()" href="#">Click this link to run some javascript.</a></p>
+
+<h1 id="mainHeaderText">UPRC Study Room Availability</h1>
+
+<ul id="roomList">
+{% for room in rooms %}
+<li>{{ room.name }} is {% if room.isOccupied %}<span class="redText">OCCUPIED</span> {% else %}<span class="greenText">VACANT</span>{% endif %}</li>
+{% endfor %}
+</ul>
+
 {% endblock %}
