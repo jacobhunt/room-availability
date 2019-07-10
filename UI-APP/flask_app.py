@@ -30,6 +30,15 @@ def index():
         rooms = [room.serialize() for room in rooms]
     )
 
+@app.route("/getRooms")
+def getRooms():
+    return(
+        jsonify(
+            # array of room data in memory
+            roomsArray = [room.serialize() for room in rooms]
+        )
+    )
+
 # http route for setting status of a room (i.e. whether or not it is occupied) 
 @app.route("/setRoomStatus")
 def setRoomStatus():
