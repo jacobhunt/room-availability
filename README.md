@@ -1,5 +1,8 @@
 # Room-Availability
-A system that allows for users to find out if a given room is vacant utilizing sensors and a web app.
+A hardware/software project to let users know whether a study room -- or, more broadly, any room which is included in the project -- is available or occupied via a self-updating web-app. The application detects whether or not a room is occupied using infrared sensors to check for the presence of body heat, rather than using cameras (which some room occupants may find invasive) or motion detectors (which may be ineffective if the room occupants are sitting still). Each infrared sensor is connected to a Raspberry PI which analyzes the sensor input and sends the resulting data to a web-app server via HTTP requests. The web-app server then renders the website, on which there is a table/spreadsheet with a row-entry for each room along with its availability status. The web-app uses AJAX to regularly update the room-availability table every few seconds, thus allowing the information in the table to remain up-to-date without requiring page-refreshes.
+
+This project was built for the Summer 2019 UPRC 24-hour Hackathon.
+
 ## Navigation
 **HARDWARE-APP:** contains source code for the hardware portion of the project.   
 **UI-APP:** contains source code for the server and client portion of the project.
