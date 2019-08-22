@@ -3,6 +3,10 @@ A hardware/software project to let users know whether a study room -- or, more b
 
 This project was built for the Summer 2019 UPRC 24-hour Hackathon.
 
+## Screenshot
+
+![alt text](https://raw.githubusercontent.com/cse-uprc/room-availability/master/Room-Availability-Screenshot.PNG)
+
 ## Navigation
 **HARDWARE-APP:** contains source code for the hardware portion of the project.   
 **UI-APP:** contains source code for the server and client portion of the project.
